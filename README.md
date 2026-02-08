@@ -135,14 +135,14 @@ Endpoint:
 
 ```bash
 curl --location 'http://localhost:9090/api/v1/trades/upload' \
-  --form 'file=@"/Users/shankar/Projects/Challenge3/src/main/resources/samples/sample_instructions.csv"'
+  --form 'file=@"/<projectworkspace>/src/main/resources/samples/sample_instructions.csv"'
 ```
 
 ### JSON sample
 
 ```bash
 curl --location 'http://localhost:9090/api/v1/trades/upload' \
-  --form 'file=@"/Users/shankar/Projects/Challenge3/src/main/resources/samples/sample_instructions.json"'
+  --form 'file=@"/<projectworkspace>/src/main/resources/samples/sample_instructions.json"'
 ```
 
 ---
@@ -152,3 +152,4 @@ curl --location 'http://localhost:9090/api/v1/trades/upload' \
 - Start **Kafka first**, then run the Spring Boot service.
 - Ensure both topics exist before testing uploads.
 - The service expects Kafka on `localhost:9092` and the API on `localhost:9090`.
+- **_Observe the console log for the desired output._**
