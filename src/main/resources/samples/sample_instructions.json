@@ -1,0 +1,18 @@
+[
+  {
+    "platform_id": "ACCT1111",
+    "account_number": "12345678901234",
+    "security_id": "abc123",
+    "trade_type": "Buy",
+    "amount": 100000,
+    "timestamp": "2025-08-04T21:15:33Z"
+  },
+  {
+    "platform_id": "ACCT2222",
+    "account_number": "9876543210",
+    "security_id": "msft",
+    "trade_type": "Sell",
+    "amount": 1500.25,
+    "timestamp": "2025-08-05T15:00:00Z"
+  }
+]

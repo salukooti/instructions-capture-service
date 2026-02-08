@@ -1,0 +1,10 @@
+{
+  "platform_id": "ACCT123",
+  "trade": {
+    "account": "**********1234",
+    "security": "ABC123",
+    "tradeType": "B",
+    "amount": 100000,
+    "timestamp": "2025-08-04T21:15:33Z"
+  }
+}

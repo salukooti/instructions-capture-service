@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: instructions-capture-service
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  kafka:
+    bootstrap-servers: localhost:9092,
+    consumer:
+      group-id: instructions-capture
+      auto-offset-reset: latest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        max.poll.records: 200
+        max.poll.interval.ms: 300000     # 5 min
+        heartbeat.interval.ms: 3000     # 3 sec
+        session.timeout.ms: 10000          # 10 sec
+    listener:
+      concurrency: 1
+      ack-mode: record
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      properties:
+        linger.ms: 5
+        enable.idempotence: true
+
+server:
+  port: 9090
+
+app:
+  kafka:
+    topics:
+      inbound: instructions.inbound
+      outbound: instructions.outbound
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui
+
+logging:
+  level:
+    #org.springframework.kafka: DEBUG
+    #org.springframework.kafka.listener: DEBUG
+    org.springframework.kafka.config: DEBUG
+    org.apache.kafka.clients.NetworkClient: INFO
+    org.apache.kafka.clients.consumer: INFO
+    root: INFO
+    org.apache.kafka: WARN
+
+
